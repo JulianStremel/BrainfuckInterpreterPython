@@ -5,12 +5,7 @@ helloWorld = "++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..
 brainfuck = "+[[->]-[-<]>-]>.>>>>.<<<<-.>>-.>.<<.>>>>-.<<<<<++.>>++." #brainfuck
 
 n = BrainfuckInterpreter()
+
 n.loadCharBuffer(helloWorld)
 
 n.interprete(debug=False)
-
-
-
-
-
-
