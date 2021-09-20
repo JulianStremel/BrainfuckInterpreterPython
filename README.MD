@@ -4,7 +4,16 @@ BrainfuckInterpreterPython is my personal repo for my own python based Brainfuck
 
 Have fun :)
 
-## Contributing
-```python
-import Julian_Stremel
-```
+## Usage
+
+# first you need to initialize the interpreter class
+n = BrainfuckInterpreter()
+
+# them load the string to interpret with
+n.loadCharBuffer("YOUR STRING HERE")
+
+# interprete and watch output
+n.interprete()
+
+#(optional you can use the debug=True argument to single Step (using ENTER) through the string and watch the execution in detail)
+n.interprete(debug=True)
