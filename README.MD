@@ -9,7 +9,7 @@ Have fun :)
 # first you need to initialize the interpreter class
 n = BrainfuckInterpreter()
 
-# them load the string to interpret with
+# then load the string to interpret
 n.loadCharBuffer("YOUR STRING HERE")
 
 # interprete and watch output
