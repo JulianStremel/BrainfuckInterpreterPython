@@ -7,14 +7,14 @@ Have fun :)
 ## Usage
 ```python
 # first you need to initialize the interpreter class
-n = BrainfuckInterpreter()
+Interpreter = BrainfuckInterpreter()
 
 # then load the string to interpret
-n.loadCharBuffer("YOUR STRING HERE")
+Interpreter.loadCharBuffer("YOUR STRING HERE")
 
 # interprete and watch output
-n.interprete()
+Interpreter.interprete()
 
 # (optional you can use the debug=True argument to single Step (using ENTER) through the string and watch the execution in detail)
-n.interprete(debug=True)
+Interpreter.interprete(debug=True)
 ```
