@@ -4,8 +4,8 @@ from brainfuck import BrainfuckInterpreter
 helloWorld = "++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++." # Hello World!
 brainfuck = "+[[->]-[-<]>-]>.>>>>.<<<<-.>>-.>.<<.>>>>-.<<<<<++.>>++." #brainfuck
 
-n = BrainfuckInterpreter()
+Interpreter = BrainfuckInterpreter()
 
-n.loadCharBuffer(helloWorld)
+Interpreter.loadCharBuffer(helloWorld)
 
-n.interprete(debug=False)
+Interpreter.interprete(debug=False)
