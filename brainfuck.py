@@ -107,61 +107,60 @@ class BrainfuckInterpreter():
     def interprete(self,debug=False):
         
         # checking for chars in charList
-        if self.charList != []:
-
-            # using charPointer to walk over the string
-            while self.charPointer < len(self.charList):
-
-                if self.charList[self.charPointer] == "+":
-                    self.memory.increment_byte()
-
-                elif self.charList[self.charPointer] == "-":
-                    self.memory.decrement_byte()
-
-                elif self.charList[self.charPointer] == ">":
-                    self.memory.increment_pointer()
-
-                elif self.charList[self.charPointer] == "<":
-                    self.memory.decrement_pointer()
-
-                elif self.charList[self.charPointer] == ",":
-                    self.memory.read_input()
-
-                elif self.charList[self.charPointer] == ".":
-                    self.memory.write_output()
-
-                elif self.charList[self.charPointer] == "[":
-                    self.loopEntry.insert(0,self.charPointer)
-                    self.charPointer += 1
-                    self.interprete(debug)
-                    
-                elif self.charList[self.charPointer] == "]":
-                    if self.__currentMemoryValue__()>0:
-                        self.charPointer = self.loopEntry[0]
-                    else:
-                        self.loopEntry.pop(0)
-                        if debug:
-                            print("returned from loop")
-                        return
-
-                else:
-                    # here we could remove non interpretable character from string and char list 
-                    pass
-                
-                if debug:
-                    # debugging output
-                    print(self.charList)
-                    print("loop entrys:" + str(self.loopEntry))
-                    print("char pointer: " + str(self.charPointer))
-                    self.memory.dump()
-                    print("current operation: " + self.charList[self.charPointer] + " selected byte: "+ str(self.memory.pointer) + " selected value: " + str(self.memory.mainArray[self.memory.pointer]) )
-                    input()
-
-                self.charPointer += 1
-        else:
+        if self.charList == []:
             print("no char to run in buffer")
             exit()
+
+        # using charPointer to walk over the string
+        while self.charPointer < len(self.charList):
     
+            if self.charList[self.charPointer] == "+":
+                self.memory.increment_byte()
+    
+            elif self.charList[self.charPointer] == "-":
+                self.memory.decrement_byte()
+    
+            elif self.charList[self.charPointer] == ">":
+                self.memory.increment_pointer()
+    
+            elif self.charList[self.charPointer] == "<":
+                self.memory.decrement_pointer()
+    
+            elif self.charList[self.charPointer] == ",":
+                self.memory.read_input()
+    
+            elif self.charList[self.charPointer] == ".":
+                self.memory.write_output()
+    
+            elif self.charList[self.charPointer] == "[":
+                self.loopEntry.insert(0,self.charPointer)
+                self.charPointer += 1
+                self.interprete(debug)
+                
+            elif self.charList[self.charPointer] == "]":
+                if self.__currentMemoryValue__()>0:
+                    self.charPointer = self.loopEntry[0]
+                else:
+                    self.loopEntry.pop(0)
+                    if debug:
+                        print("returned from loop")
+                    return
+    
+            else:
+                # here we could remove non interpretable character from string and char list 
+                pass
+            
+            if debug:
+                # debugging output
+                print(self.charList)
+                print("loop entrys:" + str(self.loopEntry))
+                print("char pointer: " + str(self.charPointer))
+                self.memory.dump()
+                print("current operation: " + self.charList[self.charPointer] + " selected byte: "+ str(self.memory.pointer) + " selected value: " + str(self.memory.mainArray[self.memory.pointer]) )
+                input()
+    
+            self.charPointer += 1
+
 
 
 
